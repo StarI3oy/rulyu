@@ -1,13 +1,16 @@
 const HyperExpress = require("hyper-express");
 const mysql = require("mysql2/promise");
 
+// Загрузка переменных окружения из .env файла
+require("dotenv").config();
+
 // Подключение к MySQL
 const db = mysql.createPool({
-  host: "185.177.216.77",
-  port: 3306,
-  user: "xmOpVg",
-  password: "KaLkvbiknbvOWztv",
-  database: "jFicQURj",
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
 /**
